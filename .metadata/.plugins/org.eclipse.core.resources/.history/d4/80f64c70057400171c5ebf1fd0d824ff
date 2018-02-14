@@ -1,0 +1,25 @@
+import java.awt.*;
+import java.util.Random;
+
+public class Bulldog extends Critter{
+	
+	//TODO: CREATE UNIQUE AND INTESTING BEHAVIOURS
+	//BEHAVIOR 1: CAMOFLAGE 
+	
+	Random rand = new Random();
+	Direction[] direction = {Direction.WEST,Direction.EAST,Direction.NORTH,Direction.SOUTH};
+	
+	//Constructor
+	public Bulldog() {}
+	
+	public Attack fight(String opponent) {
+		if (opponent.equals("%")) { return Attack.ROAR; }
+		return Attack.SCRATCH;
+	}
+	
+	public boolean eat() { return true; } //EAT TRUE MAKE THE ANIMAL SLEEP - HOW TO SOLVE?
+	
+	public Direction getMove() { return direction[rand.nextInt(4)]; }
+	
+	public String toString() { return getNeighbor(direction[rand.nextInt(4)]); }
+}

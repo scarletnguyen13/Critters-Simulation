@@ -1,0 +1,60 @@
+import java.awt.*;
+import java.util.Random;
+
+public class Hippo extends Critter {
+	
+	private int remainHunger;
+	private Direction[] dir = {Direction.EAST,Direction.SOUTH,Direction.WEST,Direction.NORTH};
+	private Direction currentDir;
+	private int moveCount;
+	private Random rand = new Random();
+	
+	public Hippo(int hunger) {
+		this.remainHunger = hunger;
+		moveCount = 0;
+		currentDir = dir[rand.nextInt(4)];
+	}
+	
+	public boolean eat() {
+		if (remainHunger > 0) {
+			return true;
+		}
+		return false;
+	}
+	
+	public Color getColor() {
+		if (eat()) {
+			return Color.GRAY;
+		}
+		return Color.WHITE;
+	}
+	
+	public Attack fight(String opponent) {
+		if (opponent.equals(".")) {
+			remainHunger--;
+		}
+		if (eat()) {
+			return Attack.SCRATCH;
+		}
+		return Attack.POUNCE;
+	}
+
+	public Direction getMove() {
+		if (moveCount % 5 != 0) {
+			moveCount++;
+			return currentDir;
+		} else {
+			Direction temp = dir[rand.nextInt(4)];
+			while (temp.equals(currentDir)) {
+				temp = dir[rand.nextInt(4)];
+			}
+			currentDir = temp;
+			moveCount++;
+			return currentDir;
+		}
+	}
+
+	public String toString() {
+		return "" + remainHunger;
+	}
+} 

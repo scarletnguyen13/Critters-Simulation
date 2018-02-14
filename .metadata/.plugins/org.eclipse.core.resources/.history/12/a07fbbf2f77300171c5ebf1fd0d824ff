@@ -1,0 +1,11 @@
+import java.awt.*;
+
+public class Bulldog extends Critter{
+	
+	public Bulldog() {/*LEAVE BLANK*/};
+	
+	public Attack fight(String opponent) {
+		if (opponent.equals("%")) { return Attack.ROAR; } 
+		else { return Attack.SCRATCH; }
+	}
+}

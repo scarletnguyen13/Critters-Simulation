@@ -1,0 +1,17 @@
+#CPSC112 Critters saved settings
+#Fri Jul 28 23:02:56 PDT 2017
+Height=50
+Number\ of\ each\ critter=25
+Network\ features=true
+Vulture=false
+BulldogTest=false
+Snake=false
+Secure\ tournament\ mode=false
+Bird=false
+Bulldog=true
+Debug\ output=false
+Ant=false
+Hippo=false
+Width=60
+Cougar=false
+Stone=true

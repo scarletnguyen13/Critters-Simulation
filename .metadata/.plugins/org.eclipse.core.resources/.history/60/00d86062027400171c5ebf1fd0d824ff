@@ -1,0 +1,26 @@
+import java.awt.*;
+import java.util.Random;
+
+public class Bulldog extends Critter{
+	
+	Random rand = new Random();
+	Direction[] direction = {Direction.WEST,Direction.EAST,Direction.NORTH,Direction.SOUTH};
+	
+	public Bulldog() {}
+	
+	public Attack fight(String opponent) {
+		if (opponent.equals("%")) { return Attack.ROAR; }
+		else if (opponent.equals("0") || opponent.equals("^") || opponent.equals(">") || opponent.equals("V") || opponent.equals("<") ) {
+			return Attack.SCRATCH;
+		}
+		else {
+			return Attack.FORFEIT;
+		}
+	}
+	
+	public boolean eat() { return false; }
+	
+	public Direction getMove() { return direction[rand.nextInt(4)]; }
+	
+	public String toString() { return getNeighbor(direction[rand.nextInt(4)]); }
+}

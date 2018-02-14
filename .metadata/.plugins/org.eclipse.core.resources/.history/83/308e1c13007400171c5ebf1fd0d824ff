@@ -1,0 +1,35 @@
+import java.awt.*;
+import java.util.Random;
+
+public class Bulldog extends Critter{
+	
+	//private Color[] rainbow = {Color.RED,Color.ORANGE,Color.YELLOW,Color.GREEN,Color.CYAN,Color.BLUE,Color.PINK};
+	private int count;
+	
+	public Bulldog() {
+		count = 0;
+	}
+	
+	public Attack fight(String opponent) {
+		return Attack.SCRATCH;
+	}
+	
+	public boolean eat() {
+		return false;
+	}
+	
+	public Color getColor() {
+		return null;
+	}
+	
+	public Direction getMove() {
+		return Direction.SOUTH;
+	}
+	
+	public String toString() {
+		Random rand = new Random();
+		Direction[] direction = {Direction.WEST,Direction.EAST,Direction.NORTH,Direction.SOUTH};
+		return getNeighbor(direction[rand.nextInt(4)]);
+		//return "<>";
+	}
+}
